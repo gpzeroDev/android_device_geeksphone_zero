@@ -1,5 +1,5 @@
 # The gps config appropriate for this device
-$(call inherit-product, device/common/gps/gps_us_supl.mk)
+$(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 $(call inherit-product-if-exists, vendor/geeksphone/zero/zero-vendor.mk)
 
@@ -159,7 +159,6 @@ PRODUCT_COPY_FILES += \
     vendor/geeksphone/zero/proprietary/etc/BCM4325D1_004.002.004.0230.0244.hcd:system/etc/BCM4325D1_004.002.004.0230.0244.hcd \
     vendor/geeksphone/zero/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.zero.so
 
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media_profiles.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
@@ -169,13 +168,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/apns-conf.xml:system/etc/apns-conf.xml
 
 ## Bundled packages
-
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/FileManager-1.1.6.apk:system/app/FileManager.apk
+    $(LOCAL_PATH)/prebuilt/FileManager-1.1.6.apk:system/app/FileManager.apk \
+    $(LOCAL_PATH)/prebuilt/Superuser.apk:system/app/Superuser.apk
 
 PRODUCT_PACKAGES += \
-    Notepad \
-    Superuser \
     su
 
 $(call inherit-product, build/target/product/full.mk)
