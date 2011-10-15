@@ -175,6 +175,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     su
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/su:system/xbin/su
+
 $(call inherit-product, build/target/product/full.mk)
 $(call inherit-product, build/target/product/languages_full.mk)
 
