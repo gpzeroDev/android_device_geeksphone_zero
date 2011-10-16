@@ -22,7 +22,6 @@ BOARD_USE_CAF_LIBCAMERA := true
 -include vendor/geeksphone/zero/BoardConfigVendor.mk
 
 TARGET_NO_BOOTLOADER := true
-#TARGET_NO_RECOVERY := true
 TARGET_CPU_ABI := armeabi
 TARGET_ARCH_VARIANT := armv5te-vfp
 TARGET_BOARD_PLATFORM := msm7k
@@ -30,7 +29,6 @@ TARGET_CPU_ABI := armeabi
 TARGET_BOOTLOADER_BOARD_NAME := zero
 
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
-BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
 
 BOARD_KERNEL_CMDLINE := mem=212M console=null androidboot.hardware=zero
 BOARD_KERNEL_BASE := 0x00200000
@@ -48,7 +46,6 @@ TARGET_PREBUILT_KERNEL := device/geeksphone/zero/kernel
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/geeksphone/zero/recovery_ui.c
 
 BOARD_NO_RGBX_8888 := true
-
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 
 JS_ENGINE := jsc

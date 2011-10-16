@@ -620,8 +620,8 @@ static const str_map focus_modes[] = {
 };
 
 static const str_map lensshade[] = {
-    { CameraParameters::LENSSHADE_ENABLE, TRUE },
-    { CameraParameters::LENSSHADE_DISABLE, FALSE }
+//  { CameraParameters::LENSSHADE_ENABLE, TRUE },
+//  { CameraParameters::LENSSHADE_DISABLE, FALSE }
 };
 
 static const str_map continuous_af[] = {
@@ -984,7 +984,7 @@ QualcommCameraHardware::QualcommCameraHardware()
 
     switch(mCurrentTarget){
         case TARGET_MSM7627:
-            jpegPadding = 8;
+            jpegPadding = 0; // to be checked.
             break;
         case TARGET_QSD8250:
         case TARGET_MSM7630:
@@ -1571,10 +1571,9 @@ static bool native_set_afmode(int camfd, isp3a_af_mode_t af_type)
         LOGE("native_set_afmode: ioctl fd %d error %s\n",
              camfd,
              strerror(errno));
- 	rc =*(int *)(ctrlCmd.value);
+
     LOGV("native_set_afmode: ctrlCmd.status == %d\n", ctrlCmd.status);
-    LOGV("native_set_afmode: rc == %d\n", rc);
-    return rc > 0 && ctrlCmd.status == CAMERA_EXIT_CB_DONE;
+    return rc >= 0 /*&& ctrlCmd.status == CAMERA_EXIT_CB_DONE*/;
 }
 
 static bool native_cancel_afmode(int camfd, int af_fd)
@@ -2430,10 +2429,6 @@ bool QualcommCameraHardware::initPreview()
                                 0,
                                 "preview");
 
-	// Make sure the zoom level is compatible with the final
-    // resolution...
-    setZoom(mParameters);
-
     if (!mPreviewHeap->initialized()) {
         mPreviewHeap.clear();
         LOGE("initPreview X: could not initialize Camera preview heap.");
@@ -3208,9 +3203,6 @@ void QualcommCameraHardware::runSnapshotThread(void *data)
     mInSnapshotModeWait.signal();
     mInSnapshotModeWaitLock.unlock();
 
-    // Make sure the zoom level is compatible with the final
-    // resolution...
-    setZoom(mParameters);
     mSnapshotFormat = 0;
 
     mJpegThreadWaitLock.lock();
@@ -3355,11 +3347,7 @@ status_t QualcommCameraHardware::setParameters(const CameraParameters& params)
     if ((rc = setRotation(params)))     final_rc = rc;
     if ((rc = setZoom(params)))         final_rc = rc;
     if ((rc = setOrientation(params)))  final_rc = rc;
-    if ((rc = setLensshadeValue(params)))  final_rc = rc;
     if ((rc = setPictureFormat(params))) final_rc = rc;
-    if ((rc = setSharpness(params)))    final_rc = rc;
-    if ((rc = setSaturation(params)))   final_rc = rc;
-    if ((rc = setSceneMode(params)))    final_rc = rc;
     if ((rc = setContrast(params)))     final_rc = rc;
 
     const char *str = params.get(CameraParameters::KEY_SCENE_MODE);
@@ -3367,8 +3355,6 @@ status_t QualcommCameraHardware::setParameters(const CameraParameters& params)
 
     if((value != NOT_FOUND) && (value == CAMERA_BESTSHOT_OFF)) {
         if ((rc = setPreviewFrameRate(params))) final_rc = rc;
-        if ((rc = setAntibanding(params)))  final_rc = rc;
-        if ((rc = setAutoExposure(params))) final_rc = rc;
         if ((rc = setExposureCompensation(params))) final_rc = rc;
         if ((rc = setWhiteBalance(params))) final_rc = rc;
         if ((rc = setFocusMode(params)))    final_rc = rc;
@@ -3533,7 +3519,7 @@ bool QualcommCameraHardware::native_zoom_image(int fd, int srcOffset, int dstOff
     e->transp_mask = 0xffffffff;
     e->flags = 0;
     e->alpha = 0xff;
-    if (crop->in2_w != 0 || crop->in2_h != 0) {
+    if (crop->in2_w != 0 && crop->in2_h != 0) {
         e->src_rect.x = (crop->out2_w - crop->in2_w + 1) / 2 - 1;
         e->src_rect.y = (crop->out2_h - crop->in2_h + 1) / 2 - 1;
         e->src_rect.w = crop->in2_w;
