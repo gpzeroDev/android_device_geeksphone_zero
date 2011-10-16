@@ -92,31 +92,16 @@ struct board_property{
 #define DEFAULT_FPS 15
 #define MAXIMUM_FPS 25
 
-/* This is the right struct, but the JPEG encoder is derping when
- * upscaling the cropped pics...
 typedef struct {
 	unsigned int in1_w;
-	unsigned int out1_w;
 	unsigned int in1_h;
+	unsigned int out1_w;
 	unsigned int out1_h;
 	unsigned int in2_w;
-	unsigned int out2_w;
 	unsigned int in2_h;
+	unsigned int out2_w;
 	unsigned int out2_h;
 	uint8_t update_flag; 
-} common_crop_t;
-*/
-
-typedef struct {
-        unsigned int in1_w;
-        unsigned int in1_h;
-        unsigned int out1_w;
-        unsigned int out1_h;
-        unsigned int in2_w;
-        unsigned int in2_h;
-        unsigned int out2_w;
-        unsigned int out2_h;
-        uint8_t update_flag;
 } common_crop_t;
 
 typedef uint8_t cam_ctrl_type;
@@ -132,8 +117,8 @@ typedef struct {
 	unsigned short orig_picture_dy;
 	unsigned short ui_thumbnail_height;
 	unsigned short ui_thumbnail_width;
-	unsigned short thumbnail_height;
 	unsigned short thumbnail_width;
+	unsigned short thumbnail_height;
 	unsigned short raw_picture_height;
 	unsigned short raw_picture_width;
 	unsigned short filler7;
@@ -277,7 +262,7 @@ enum camera_ops {
     CAMERA_START_RECORDING,
     CAMERA_STOP_RECORDING,
     CAMERA_GET_PARM_MAXZOOM,
-    CAMERA_GET_PARM_ZOOMRATIOS,
+    CAMERA_START_RAW_SNAPSHOT,
     CAMERA_SET_PARM_LED_MODE,
     CAMERA_GET_PARM_AF_SHARPNESS,
     CAMERA_SET_MOTION_ISO,
@@ -287,7 +272,6 @@ enum camera_ops {
     CAMERA_PREPARE_SNAPSHOT,
     CAMERA_SET_FPS_MODE,
     CAMERA_SET_PARM_SCENE_MODE,
-    CAMERA_START_RAW_SNAPSHOT,
 };
 
 typedef enum {

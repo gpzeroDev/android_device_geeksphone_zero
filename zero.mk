@@ -169,14 +169,12 @@ PRODUCT_COPY_FILES += \
 
 ## Bundled packages
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/FileManager-1.1.6.apk:system/app/FileManager.apk \
-    $(LOCAL_PATH)/prebuilt/Superuser.apk:system/app/Superuser.apk
+    $(LOCAL_PATH)/prebuilt/FileManager-1.1.6.apk:system/app/FileManager.apk
 
 PRODUCT_PACKAGES += \
+    Notepad \
+    Superuser \
     su
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/su:system/xbin/su
 
 $(call inherit-product, build/target/product/full.mk)
 $(call inherit-product, build/target/product/languages_full.mk)
