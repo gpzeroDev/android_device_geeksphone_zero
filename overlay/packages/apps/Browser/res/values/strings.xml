@@ -647,7 +647,7 @@
             user signs up the device with a Google sites account, the site's
             domain will be appended. -->
     <string name="homepage_base" translatable="false">
-        http://www.geeksphone.com/zerohome.htm?client=ms-{CID}&amp;source=android-home</string>
+        http://www.geeksphone.com/zerohome/</string>
 
     <!-- Bookmarks -->
     <string-array name="bookmarks" translatable="false">
