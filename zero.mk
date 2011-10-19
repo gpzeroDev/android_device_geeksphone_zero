@@ -168,13 +168,20 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/apns-conf.xml:system/etc/apns-conf.xml
 
 ## Bundled packages
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/FileManager-1.1.6.apk:system/app/FileManager.apk
-
 PRODUCT_PACKAGES += \
-    Notepad \
     Superuser \
     su
+
+#Bootanimation
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/bootanimation.zip:system/media/bootanimation.zip
+
+# Se introducen gapps
+$(call inherit-product, device/geeksphone/zero/extra/gapps.mk)
+# Se introducen las aplicaciones extras requeridas para la ROM
+$(call inherit-product, device/geeksphone/zero/extra/extraApps.mk)
+# Se introducen los sonidos propios de GP0
+$(call inherit-product, device/geeksphone/zero/extra/audio.mk)
 
 $(call inherit-product, build/target/product/full.mk)
 $(call inherit-product, build/target/product/languages_full.mk)

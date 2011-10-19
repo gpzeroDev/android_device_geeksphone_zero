@@ -27,47 +27,44 @@
         launcher:spanY="1" />
 
     <favorite
+        launcher:packageName="com.facebook.katana"
+        launcher:className="com.facebook.katana.LoginActivity"
+        launcher:screen="2"
+        launcher:x="0"
+        launcher:y="1" />
+
+    <favorite
+        launcher:packageName="com.skype.raider"
+        launcher:className="com.skype.raider.Main"
+        launcher:screen="2"
+        launcher:x="0"
+        launcher:y="2" />
+
+    <favorite
+        launcher:packageName="com.google.android.apps.maps"
+        launcher:className="com.google.android.maps.PlacesActivity"
+        launcher:screen="2"
+        launcher:x="0"
+        launcher:y="3" />
+
+    <favorite
+        launcher:packageName="com.whatsapp"
+        launcher:className="com.whatsapp.Main"
+        launcher:screen="2"
+        launcher:x="3"
+        launcher:y="1" />
+
+    <favorite
+        launcher:packageName="com.google.android.apps.maps"
+        launcher:className="com.google.android.maps.MapsActivity"
+        launcher:screen="2"
+        launcher:x="3"
+        launcher:y="2" />
+
+    <favorite
         launcher:packageName="com.android.browser"
         launcher:className="com.android.browser.BrowserActivity"
         launcher:screen="2"
-        launcher:x="0"
-        launcher:y="3" />
-
-    <favorite
-        launcher:packageName="com.android.contacts"
-        launcher:className="com.android.contacts.DialtactsActivity"
-        launcher:screen="2"
-        launcher:x="1"
-        launcher:y="3" />
-
-    <favorite
-        launcher:packageName="com.android.mms"
-        launcher:className="com.android.mms.ui.ConversationList"
-        launcher:screen="2"
-        launcher:x="2"
-        launcher:y="3" />
-
-    <favorite
-        launcher:packageName="com.android.music"
-        launcher:className="com.android.music.MusicBrowserActivity"
-        launcher:screen="2"
         launcher:x="3"
-        launcher:y="3" />
-
-
-    <favorite
-        launcher:packageName="com.google.android.apps.genie.geniewidget"
-        launcher:className="com.google.android.apps.genie.geniewidget.activities.NewsActivity"
-        launcher:screen="2"
-        launcher:x="0"
-        launcher:y="2" />
-
-    <favorite
-        launcher:packageName="com.android.camera"
-        launcher:className="com.android.camera.Camera"
-        launcher:screen="2"
-        launcher:x="3"
-        launcher:y="2" />
-
- 
+        launcher:y="3" /> 
 </favorites>
