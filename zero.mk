@@ -177,7 +177,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/bootanimation.zip:system/media/bootanimation.zip
 
 # Se introducen gapps
-$(call inherit-product, device/geeksphone/zero/extra/gapps.mk)
+#$(call inherit-product, device/geeksphone/zero/extra/gapps.mk)
 # Se introducen las aplicaciones extras requeridas para la ROM
 $(call inherit-product, device/geeksphone/zero/extra/extraApps.mk)
 # Se introducen los sonidos propios de GP0
