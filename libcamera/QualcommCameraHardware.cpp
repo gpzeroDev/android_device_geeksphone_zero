@@ -3343,8 +3343,6 @@ status_t QualcommCameraHardware::setParameters(const CameraParameters& params)
     if((value != NOT_FOUND) && (value == CAMERA_BESTSHOT_OFF)) {
         if ((rc = setPreviewFrameRate(params))) final_rc = rc;
         if ((rc = setAntibanding(params)))  final_rc = rc;
-        if ((rc = setAutoExposure(params))) final_rc = rc;
-        if ((rc = setExposureCompensation(params))) final_rc = rc;
         if ((rc = setWhiteBalance(params))) final_rc = rc;
         if ((rc = setFocusMode(params)))    final_rc = rc;
         if ((rc = setBrightness(params)))   final_rc = rc;
