@@ -24,13 +24,18 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 
-# Live wallpaper packages
+# Extra packages
 PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
     MagicSmokeWallpapers \
     VisualizationWallpapers \
-    librs_jni
+    DSPManager \
+    Stk \
+    su \
+    librs_jni \
+    libcyanogen-dsp
+    
 
 # Publish that we support the live wallpaper feature.
 PRODUCT_COPY_FILES += \
@@ -64,18 +69,9 @@ PRODUCT_COPY_FILES += \
     vendor/geeksphone/zero/proprietary/lib/libcm.so:system/lib/libcm.so \
     vendor/geeksphone/zero/proprietary/lib/libdll.so:system/lib/libdll.so \
     vendor/geeksphone/zero/proprietary/bin/rild:system/bin/rild \
-    vendor/geeksphone/zero/proprietary/lib/libaudio.so:system/lib/libaudio.so \
     vendor/geeksphone/zero/proprietary/lib/libloc_api.so:system/lib/libloc_api.so \
     vendor/geeksphone/zero/proprietary/lib/libril-qc-1.so:system/lib/libril-qc-1.so \
     vendor/geeksphone/zero/proprietary/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so
-
-## QCRILHOOK
-PRODUCT_COPY_FILES += \
-    vendor/geeksphone/zero/proprietary/app/QualcommSettings.apk:system/app/QualcommSettings.apk \
-    vendor/geeksphone/zero/proprietary/framework/qcnvitems.jar:system/framework/qcnvitems.jar \
-    vendor/geeksphone/zero/proprietary/framework/qcrilhook.jar:system/framework/qcrilhook.jar \
-    $(LOCAL_PATH)/qcrilhook.xml:system/etc/permissions/qcrilhook.xml \
-    $(LOCAL_PATH)/qcnvitems.xml:system/etc/permissions/qcnvitems.xml
 
 ## OMX proprietaries
 PRODUCT_COPY_FILES += \
@@ -127,7 +123,6 @@ PRODUCT_COPY_FILES += \
     vendor/geeksphone/zero/proprietary/lib/libaudio.so:system/lib/libaudio.so \
     vendor/geeksphone/zero/proprietary/app/FMRadio.apk:system/app/FMRadio.apk
 
-
    # $(LOCAL_PATH)/AudioFilter.csv:system/etc/AudioFilter.csv \
    
 ## Other libraries and proprietary binaries
@@ -167,23 +162,26 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/7k_ffa_keypad.kl:system/usr/keylayout/7k_ffa_keypad.kl \
     $(LOCAL_PATH)/apns-conf.xml:system/etc/apns-conf.xml
 
-## Bundled packages
-PRODUCT_PACKAGES += \
-    Superuser \
-    su
-
 #Bootanimation
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/bootanimation.zip:system/media/bootanimation.zip
 
+# enable Google-specific location features,
+# like NetworkLocationProvider and LocationCollector
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.com.google.locationfeatures=1 \
+        ro.com.google.networklocation=1
+
 # Se introducen gapps
-#$(call inherit-product, device/geeksphone/zero/extra/gapps.mk)
+$(call inherit-product, device/geeksphone/zero/extra/gapps.mk)
+
 # Se introducen las aplicaciones extras requeridas para la ROM
 $(call inherit-product, device/geeksphone/zero/extra/extraApps.mk)
+
 # Se introducen los sonidos propios de GP0
 $(call inherit-product, device/geeksphone/zero/extra/audio.mk)
 
-$(call inherit-product, build/target/product/full.mk)
+$(call inherit-product, build/target/product/full_base.mk)
 $(call inherit-product, build/target/product/languages_full.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0

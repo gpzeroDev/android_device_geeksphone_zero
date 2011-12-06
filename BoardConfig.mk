@@ -3,7 +3,7 @@ BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QCOM_LIBS := true
 TARGET_NO_BOOTLOADER := true
 TARGET_CPU_ABI := armeabi
-TARGET_ARCH_VARIANT := armv5te-vfp
+TARGET_ARCH_VARIANT := armv6-vfp
 TARGET_BOARD_PLATFORM := msm7k
 TARGET_CPU_ABI := armeabi
 TARGET_BOOTLOADER_BOARD_NAME := zero
@@ -30,6 +30,8 @@ TARGET_PREBUILT_KERNEL := device/geeksphone/zero/kernel
 BOARD_KERNEL_CMDLINE := mem=212M androidboot.hardware=zero no_console_suspend=1 console=null quiet
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_PAGE_SIZE := 0x00000800
+
+#recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/geeksphone/zero/recovery_ui.c
 
 # fix this up by examining /proc/mtd on a running device
@@ -41,8 +43,9 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 
 #Graphics
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 BOARD_NO_RGBX_8888 := true
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
+BOARD_AVOID_DRAW_TEXTURE_EXTENSION := true
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 
 #Javascript engine
@@ -66,7 +69,12 @@ TARGET_USES_OLD_LIBSENSORS_HAL:=true
 BOARD_HAVE_FM_RADIO := true
 BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 BOARD_USE_BROADCOM_FM_VOLUME_HACK := true
-BOARD_HAS_VIBRATOR_IMPLEMENTATION := ../../device/geeksphone/zero/vibrator.c
 
 # Proximity sensor
 TARGET_PROXIMITY_SENSOR_LIMIT := 3
+
+# vibrator
+BOARD_HAS_VIBRATOR_IMPLEMENTATION := ../../device/geeksphone/zero/vibrator.c
+
+# System
+WITH_DEXPREOPT := true

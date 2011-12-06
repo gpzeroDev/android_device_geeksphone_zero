@@ -34,15 +34,15 @@
         launcher:y="1" />
 
     <favorite
-        launcher:packageName="com.ebuddy.android"
-        launcher:className="com.ebuddy.android.ui.StartupActivity"
+        launcher:packageName="com.sim.fm"
+        launcher:className="com.sim.fm.MainActivity"
         launcher:screen="2"
         launcher:x="0"
         launcher:y="2" />
 
     <favorite
-        launcher:packageName="com.sim.fm"
-        launcher:className="com.sim.fm.MainActivity"
+        launcher:packageName="com.android.contacts"
+        launcher:className="com.android.contacts.DialtactsContactsEntryActivity"
         launcher:screen="2"
         launcher:x="0"
         launcher:y="3" />
@@ -55,8 +55,8 @@
         launcher:y="1" />
 
     <favorite
-        launcher:packageName="com.android.camera"
-        launcher:className="com.android.camera.Camera"
+        launcher:packageName="com.cooliris.media"
+        launcher:className="com.cooliris.media.Gallery"
         launcher:screen="2"
         launcher:x="3"
         launcher:y="2" />
