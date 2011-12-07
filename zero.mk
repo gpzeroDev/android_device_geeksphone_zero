@@ -110,9 +110,11 @@ PRODUCT_COPY_FILES += \
     vendor/geeksphone/zero/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
     vendor/geeksphone/zero/proprietary/lib/libmmipl.so:system/lib/libmmipl.so
 
-## Wifi module
+## kernel modules
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/dhd.ko:system/lib/modules/dhd.ko
+    $(LOCAL_PATH)/prebuilt/dhd.ko:system/lib/modules/dhd.ko \
+    $(LOCAL_PATH)/prebuilt/dhd.ko:system/lib/modules/tun.ko \
+    $(LOCAL_PATH)/prebuilt/dhd.ko:system/lib/modules/cifs.ko \
 
 ## FMRadio app and dependencies
 PRODUCT_COPY_FILES += \
@@ -188,3 +190,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := zero
 PRODUCT_DEVICE := zero
 PRODUCT_MODEL := Geeksphone ZERO
+PRODUCT_MANUFACTURER := Geeksphone
+BUILD_NUMBER := GP0-1.0

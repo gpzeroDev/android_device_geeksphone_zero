@@ -51,3 +51,6 @@ ro.com.android.dataroaming=false
 # Delay específico del sensor de proximidad, valor por defecto = 1000, 
 # en ZERO para ahorrar un poco el consumo durante la llamada, se ha aumentado a 1500
 ro.prox.delay=1500
+
+#Version
+ro.SR.version.name=SR 2.3 Duke
