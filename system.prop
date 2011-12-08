@@ -42,7 +42,7 @@ persist.sys.use_dithering=1
 ro.hardware.respect_als=true
 
 # Raise heap size
-dalvik.vm.heapsize=32m
+dalvik.vm.heapsize=48m
 
 # Default Configuration items
 ro.com.android.dateformat=dd-MM-yyyy
