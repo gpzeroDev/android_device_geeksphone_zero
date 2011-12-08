@@ -112,9 +112,7 @@ PRODUCT_COPY_FILES += \
 
 ## kernel modules
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/dhd.ko:system/lib/modules/dhd.ko \
-    $(LOCAL_PATH)/prebuilt/dhd.ko:system/lib/modules/tun.ko \
-    $(LOCAL_PATH)/prebuilt/dhd.ko:system/lib/modules/cifs.ko \
+    $(LOCAL_PATH)/prebuilt/dhd.ko:system/lib/modules/dhd.ko
 
 ## FMRadio app and dependencies
 PRODUCT_COPY_FILES += \

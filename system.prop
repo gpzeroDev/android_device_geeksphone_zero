@@ -54,3 +54,6 @@ ro.prox.delay=1500
 
 #Version
 ro.SR.version.name=SR 2.3 Duke
+
+#Ring tone
+ro.config.ringtone=Noises2.ogg
